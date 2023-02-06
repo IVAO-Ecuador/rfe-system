@@ -2,7 +2,7 @@ export const translations = {
     English: {
       language: 'English',
       description: 'Welcome to the RFO flight reservation system for events. Join our next event to improve your navigation skills in a realistic virtual environment. Log in and book your flight to enjoy the event. (Coming soon)',
-      button_label: 'GoodbyeGo to the official IVAO Ecuador website.'
+      button_label: 'Go to IVAO Ecuador website.'
     },
     Español: {
       language: 'Español',
