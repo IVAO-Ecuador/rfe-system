@@ -14,11 +14,15 @@ export const HomePage = () => {
         setSelectedLanguage(language);
     };
 
+	const handleSession = (isOnSession) => {
+		setIsLoggedIn(isOnSession);
+	}
+
 	return (
 		<PageContext.Provider value={selectedLanguage}>
 		<div className="xl:min-h-screen w-full xl:flex">
 			<div className="xl:w-1/3 p-12 px-16 bg-bg-dark-purple">
-				<img src="./src/assets/ec_logo.png" alt="Logo IVAO Ecuador" className="block m-auto mb-5 w-96" />
+				<img src="http://rfo.ec.ivao.aero/assets/ec_logo-ea67a782.png" alt="Logo IVAO Ecuador" className="block m-auto mb-5 w-96" />
 				<h1 className="text-center text-4xl mb-10 font-bold text-white font-[Poppins]">RFE System</h1>
 
 				<p className="text-center text-lg font-[Poppins] text-white mb-12">
@@ -36,9 +40,16 @@ export const HomePage = () => {
 				</div>
 			</div>
 
-			<div className="xl:w-2/3 p-12 bg-bg-dark-blue flex items-center justify-center login-section">
-				<LoginSection/>
-			</div>
+			{!isLoggedIn ? (
+				<div className="xl:w-2/3 p-12 bg-bg-dark-blue flex items-center justify-center login-section">
+					<LoginSection onChangeSession={handleSession} />
+				</div>
+			) : (
+				<div className="xl:w-2/3 p-12 bg-bg-dark-blue">
+					Aqui esta logueado
+				</div>
+			)}
+			
 		</div>
 		</PageContext.Provider>
 	)
