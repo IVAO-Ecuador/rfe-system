@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { LoginSection } from "../../auth/pages/LoginSection";
 import { LanguageSelector } from "../components/LanguageSelector";
+import { RFOPage } from "../components/RFOPage";
 import { translations } from "../translate/translations";
 
 export const PageContext = createContext(null);
@@ -46,7 +47,7 @@ export const HomePage = () => {
 				</div>
 			) : (
 				<div className="xl:w-2/3 p-12 bg-bg-dark-blue">
-					Aqui esta logueado
+					<RFOPage/>
 				</div>
 			)}
 			
