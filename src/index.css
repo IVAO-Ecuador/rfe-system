@@ -52,3 +52,11 @@
     border-radius: 15px;
     transform: translateZ(-1px);
 }
+
+.login-section {
+    right: -3500px;
+    padding: 100px;
+    background-image: url(./assets/bg-global.png);
+    background-size: cover;
+    background-position: -600px;
+}

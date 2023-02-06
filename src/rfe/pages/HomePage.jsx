@@ -36,7 +36,7 @@ export const HomePage = () => {
 				</div>
 			</div>
 
-			<div className="xl:w-2/3 p-12 bg-bg-dark-blue flex items-center justify-center">
+			<div className="xl:w-2/3 p-12 bg-bg-dark-blue flex items-center justify-center login-section">
 				<LoginSection/>
 			</div>
 		</div>
