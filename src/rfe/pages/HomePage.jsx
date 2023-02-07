@@ -10,17 +10,20 @@ export const HomePage = () => {
 
 	const [selectedLanguage, setSelectedLanguage] = useState('Español');
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [userLogged, setUserLogged] = useState([]);
 
-	const handleLanguageSelection = (language) => {
-        setSelectedLanguage(language);
+	const handleLanguageSelection = ( language ) => {
+        setSelectedLanguage( language );
     };
 
-	const handleSession = (isOnSession) => {
-		setIsLoggedIn(isOnSession);
+
+	const handleSession = ( isOnSession, { vid, firstname, lastname }) => {
+		setIsLoggedIn( isOnSession );
+		setUserLogged([{ vid: vid, firstname: firstname, lastname: lastname }]);
 	}
 
 	return (
-		<PageContext.Provider value={selectedLanguage}>
+		<PageContext.Provider value={{selectedLanguage, userLogged}}>
 		<div className="xl:min-h-screen w-full xl:flex">
 			<div className="xl:w-1/3 p-12 px-16 bg-bg-dark-purple">
 				<img src="http://rfo.ec.ivao.aero/assets/ec_logo-ea67a782.png" alt="Logo IVAO Ecuador" className="block m-auto mb-5 w-96" />

@@ -1,18 +1,16 @@
 import {useContext} from 'react'
+import { PageContext } from '../pages/HomePage';
 
 export const InfoRFO = () => {
 
-    const language = useContext(PageContext);
+  const { selectedLanguage, userLogged } = useContext(PageContext);
+  
+  const userInfo = userLogged[0];
 
   return (
     <>
-        <img src={souce}/>
-        <h2>{translations[selectedLanguage].rfo_title}</h2>
-        <p>{translations[selectedLanguage].rfo_description}</p>
-
-        <div className='w-full h-10'>
-
-        </div>
+        <p>El lenguaje es {selectedLanguage}</p>
+        <p>El usuario es {userInfo.vid}</p>
     </>
   )
 }
