@@ -9,8 +9,8 @@ export const PageContext = createContext(null);
 export const HomePage = () => {
 
 	const [selectedLanguage, setSelectedLanguage] = useState('Español');
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
-	const [userLogged, setUserLogged] = useState([]);
+	const [isLoggedIn, setIsLoggedIn] = useState(true);
+	const [userLogged, setUserLogged] = useState([{ vid: "625219", firstname: "Santiago", lastname: "Baron" }]);
 
 	const handleLanguageSelection = ( language ) => {
         setSelectedLanguage( language );
@@ -18,8 +18,8 @@ export const HomePage = () => {
 
 
 	const handleSession = ( isOnSession, { vid, firstname, lastname }) => {
-		setIsLoggedIn( isOnSession );
 		setUserLogged([{ vid: vid, firstname: firstname, lastname: lastname }]);
+		setIsLoggedIn( isOnSession );
 	}
 
 	return (
@@ -29,7 +29,7 @@ export const HomePage = () => {
 				<div className="lg:block flex items-center gap-x-14 max-md:block">
 					<img src="http://rfo.ec.ivao.aero/assets/ec_logo-ea67a782.png" alt="Logo IVAO Ecuador" className="block lg:m-auto lg:mb-5 max-md:mb-5 max-md:mb-5 lg:w-96 w-56" />
 					<div className="lg:text-center text-left">
-						<h1 className="text-4xl lg:mb-10 mb-5 font-bold text-white font-[Poppins]">RFE System</h1>
+						<h1 className="text-4xl lg:mb-10 mb-5 font-bold text-white font-[Poppins]">RFO System</h1>
 						<p className="text-lg font-[Poppins] text-white lg:mb-12">{translations[selectedLanguage].description}</p>
 					</div>
 				</div>
@@ -42,8 +42,6 @@ export const HomePage = () => {
 						<LanguageSelector onNewLanguage={ handleLanguageSelection }/>
 					</div>
 				</div>
-
-				
 			</div>
 
 			{!isLoggedIn ? (
@@ -51,7 +49,7 @@ export const HomePage = () => {
 					<LoginSection onChangeSession={handleSession} />
 				</div>
 			) : (
-				<div className="xl:w-2/3 p-12 bg-bg-dark-blue">
+				<div className="xl:w-2/3 p-20 bg-bg-dark-blue">
 					<RFOPage/>
 				</div>
 			)}

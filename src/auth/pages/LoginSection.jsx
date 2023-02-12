@@ -20,7 +20,13 @@ export const LoginSection = ({ onChangeSession }) => {
 		try {
 			const response = await fetch(`https://login.ivao.aero/api.php?type=json&token=${token}`);
 			const data = await response.json();
-			onChangeSession(true, data)
+
+			const data2 = {
+				vid2 : "625219",
+		 		firstname2: "Santiago",
+				lastname2: "Baron",
+			}
+			onChangeSession(true, data2)
 		} catch (error) {
 			console.error(error);
 		}
