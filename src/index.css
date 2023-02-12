@@ -60,3 +60,9 @@
     background-size: cover;
     background-position: -600px;
 }
+
+@media screen and (max-width: 780px){
+    .login-bg::after{
+        display: none;
+    }
+}
