@@ -45,14 +45,26 @@ app.get('/api/statistics', (req, res) => {
 
 app.get('/api/flights', (req, res) => {
 
-    const sql = `SELECT * FROM flights`;
+    const { selectAirport, type } = req.query;
+    let sql = "SELECT * FROM flights";
+    if (selectAirport === "SEQM" && type === "Departures") {
+        sql += " WHERE ICAO_Salida = 'SEQM'";
+    } else if (selectAirport === "SEQM" && type === "Arrivals") {
+        sql += " WHERE ICAO_Llegada = 'SEQM'";
+    } else if (selectAirport === "SEGU" && type === "Departures") {
+        sql += " WHERE ICAO_Salida = 'SEGU'";
+    } else if (selectAirport === "SEGU" && type === "Arrivals") {
+        sql += " WHERE ICAO_Llegada = 'SEGU'";
+    }
 
     connection.query(sql, (error, results) => {
-        if(error) throw error;
-        if(results.length > 0){
-            console.log(results)
-            res.json(results);
+        if (error) {
+        return res.status(500).json({
+            message: "Error al obtener los datos de los vuelos",
+            error
+        });
         }
+        res.json(results);
     });
 
 })
