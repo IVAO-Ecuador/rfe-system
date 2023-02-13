@@ -49,7 +49,7 @@ export const HomePage = () => {
 					<LoginSection onChangeSession={handleSession} />
 				</div>
 			) : (
-				<div className="xl:w-2/3 p-20 bg-bg-dark-blue">
+				<div className="xl:w-2/3 p-16 bg-bg-dark-blue">
 					<RFOPage/>
 				</div>
 			)}

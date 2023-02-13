@@ -29,7 +29,6 @@ connection.connect(error => {
 })
 
 app.get('/api/statistics', (req, res) => {
-
     const sql = `WITH cte AS (SELECT 'Libre' AS estado UNION ALL
         SELECT 'Reservado' UNION ALL SELECT 'Confirmado') SELECT
         cte.estado, COALESCE(f.cantidad, 0) AS cantidad FROM cte
@@ -39,6 +38,19 @@ app.get('/api/statistics', (req, res) => {
     connection.query(sql, (error, results) => {
         if(error) throw error;
         if(results.length > 0){
+            res.json(results);
+        }
+    });
+})
+
+app.get('/api/flights', (req, res) => {
+
+    const sql = `SELECT * FROM flights`;
+
+    connection.query(sql, (error, results) => {
+        if(error) throw error;
+        if(results.length > 0){
+            console.log(results)
             res.json(results);
         }
     });

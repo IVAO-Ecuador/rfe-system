@@ -14,6 +14,8 @@ export const translations = {
       rfo_waitingConfirmation: 'Flights waiting for confirmation: ',
       rfo_booked: 'Flights booked:',
       rfo_loadingMessage:'Loading flights...',
+      arrivals: 'Arrivals',
+      departures: 'Departures',
     },
     Español: {
       language: 'Español',
@@ -27,8 +29,10 @@ export const translations = {
       rfo_title: 'este es el sistema de reserva de vuelos RFO de IVAO Ecuador',
       rfo_description: 'A continuación se muestra la lista completa de vuelos para el evento. Seleccione uno, confirme su correo electrónico y su vuelo se registrará como reservado.',
       rfo_available: 'Vuelos disponibles:',
-      rfo_waitingConfirmation: 'Vuelos esperando confirmación:',
+      rfo_waitingConfirmation: 'Vuelos por confirmar:',
       rfo_booked: 'Vuelos reservados:',
       rfo_loadingMessage:'Cargando vuelos...',
+      arrivals: 'Llegadas',
+      departures: 'Salidas',
     }
 };
