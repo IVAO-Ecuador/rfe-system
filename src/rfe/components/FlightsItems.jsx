@@ -1,13 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { PageContext } from '../pages/HomePage';
 import { translations } from '../translate/translations';
+import { ButtonFlight } from './ButtonFlight';
 import { FlightsList } from './FlightsTable';
+
+export const ButtonOptions = createContext();
 
 export const FlightsItems = () => {
 
 	const { selectedLanguage, userLogged } = useContext(PageContext);
 	const { selectAirport, type } = useContext(FlightsList);
-	const [flightsInfo, setFlightsInfo] = useState([]);
+	const [ flightsInfo , setFlightsInfo ] = useState([]);
 
 	useEffect(() => {
 		async function fetchData() {
@@ -28,53 +31,61 @@ export const FlightsItems = () => {
 
 	return (
 		<div className="flex flex-col">
-			<div className='flex gap-6 justify-between bg-purple-button px-10 py-5 rounded-md text-white mb-5 text-center'>
-				<span className="w-1/6"></span>
-				<span className="w-1/4">{translations[selectedLanguage].flight_number}</span>
-				<span className="w-1/2">
+			<div className='flex gap-6 justify-between bg-purple-button px-10 py-5 rounded-md text-white mb-5'>
+				<span className="w-1/3 text-center">{translations[selectedLanguage].flight_number}</span>
+				<span className="w-1/2 text-center">
 					
-				{type == 'Departures' ? (
-					<>
-						{translations[selectedLanguage].flight_destination}
-					</>
-				) : (
-					<>
-						{translations[selectedLanguage].flight_departure}
-					</>
-				)}
+					{type == 'Departures' ? (
+						<>
+							{translations[selectedLanguage].flight_destination}
+						</>
+					) : (
+						<>
+							{translations[selectedLanguage].flight_departure}
+						</>
+					)}
 					
 				</span>
-				<span className="w-1/4">{translations[selectedLanguage].departure_time}</span>
-				<span className="w-1/4">{translations[selectedLanguage].arrival_time}</span>
-				<span className="w-1/5">{translations[selectedLanguage].aircraft}</span>
-				<span className="w-1/5">{translations[selectedLanguage].flight_status}</span>
+				<span className="w-1/5 text-center">{translations[selectedLanguage].departure_time}</span>
+				<span className="w-1/5 text-center">{translations[selectedLanguage].arrival_time}</span>
+				<span className="w-1/5 text-center">{translations[selectedLanguage].aircraft}</span>
+				<span className="w-1/3 text-center">{translations[selectedLanguage].flight_status}</span>
 			</div>
 			{flightsInfo.map((flight) => {
+
+				const randomCode = Math.random().toString(36).substring(2, 8);
+				const key = randomCode.replace(/(\w{3})(\w{3})/, '$1-$2');
+
 				return (
-					<div className='md:flex gap-6 md:justify-between bg-bg-dark-purple px-10 py-7 rounded-md text-white text-left mb-3 text-center'>
-						<span className="w-1/6 flex items-left"><img src={`/src/assets/airlines/${flight.logoAerolinea}.png`} className='px-2' /></span>
-						<span className="w-1/4">{flight.numeroVuelo}</span>
-						<span className="w-1/2 flex justify-left">
+					<ButtonOptions.Provider key={randomCode} value={{flight}}>
+						<div id={key} className='md:flex gap-6 md:justify-between bg-bg-dark-purple px-10 py-7 rounded-md text-white mb-3 items-center'>
+							<span className="w-1/3 flex items-left">
+								<img src={`/src/assets/airlines/${flight.logoAerolinea}.png`} className=' w-1/2'/>
+								<p className='ml-3'>{flight.numeroVuelo}</p>
+							</span>
+							<span className="w-1/2 flex justify-left">
 
-							{type == 'Departures' ? (
-								<>
-								<img className='h-6 rounded-[3px] mr-6' src={`https://flagcdn.com/w40/${flight.paisSalida.toLowerCase()}.png`} />
-								{flight.ICAO_Llegada} - {flight.aeropuertoLlegada}
-								</>
-							) : (
-								<>
-								<img className='h-6 rounded-[3px] mr-6' src={`https://flagcdn.com/w40/${flight.paisSalida.toLowerCase()}.png`} />
-								{flight.ICAO_Salida} - {flight.aeropuertoSalida}
-								</>
-							)}
+								{type == 'Departures' ? (
+									<>
+									<img className='h-6 rounded-[3px] mr-6' src={`https://flagcdn.com/w40/${flight.paisSalida.toLowerCase()}.png`} />
+									<p>{flight.ICAO_Llegada} - {flight.aeropuertoLlegada}</p>
+									</>
+								) : (
+									<>
+									<img className='h-6 rounded-[3px] mr-6' src={`https://flagcdn.com/w40/${flight.paisSalida.toLowerCase()}.png`} />
+									<p>{flight.ICAO_Salida} - {flight.aeropuertoSalida}</p>
+									</>
+								)}
 
-							
-						</span>
-						<span className="w-1/4">{flight.horaSalida}z</span>
-						<span className="w-1/4">{flight.horaLlegada}z</span>
-						<span className="w-1/5">{flight.tipoAeronave}</span>
-						<span className="w-1/5">{flight.estatus}</span>
-					</div>
+							</span>
+							<span className="w-1/5 text-center">{flight.horaSalida}z</span>
+							<span className="w-1/5 text-center">{flight.horaLlegada}z</span>
+							<span className="w-1/5 text-center">{flight.tipoAeronave}</span>
+							<span className="w-1/3 text-center">
+								<ButtonFlight/>
+							</span>
+						</div>
+					</ButtonOptions.Provider>
 				)
 			})}
 		</div>

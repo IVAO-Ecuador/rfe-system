@@ -45,7 +45,7 @@ export const translations = {
       departures: 'Salidas',
       tooltip_language: 'Cambia el idioma',
 
-      flight_number: 'Numero de vuelo',
+      flight_number: 'Número de vuelo',
       flight_destination: 'Aeropuerto de destino',
       flight_departure: 'Aeropuerto de salida',
       departure_time: 'Hora de salida',

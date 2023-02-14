@@ -1,5 +1,4 @@
 import React, { createContext, useState } from 'react'
-import { useEffect } from 'react';
 import { useContext } from 'react';
 import { PageContext } from '../pages/HomePage';
 import { translations } from '../translate/translations';
@@ -37,12 +36,12 @@ export const FlightsTable = () => {
 				<ul className="flex">
 					<li className={`${type === "Departures" ? "active_section" : "deactived_section"} md:w-1/2 w-full py-4 cursor-pointer text-white flex items-center justify-center gap-3`}
 					onClick={() => {handleType("Departures")}}>
-						<i class="bi bi-arrow-up-right-square-fill"></i>
+						<i className="bi bi-arrow-up-right-square-fill"></i>
 						<p>{translations[selectedLanguage].departures}</p>
 					</li>
 					<li className={`${type === "Arrivals" ? "active_section" : "deactived_section"} md:w-1/2 w-full py-4 cursor-pointer text-white flex items-center justify-center gap-3`}
 					onClick={() => {handleType("Arrivals")}}>
-						<i class="bi bi-arrow-down-right-square-fill"></i>
+						<i className="bi bi-arrow-down-right-square-fill"></i>
 						<p>{translations[selectedLanguage].arrivals}</p>
 					</li>
 				</ul>
