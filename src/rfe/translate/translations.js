@@ -16,6 +16,15 @@ export const translations = {
       rfo_loadingMessage:'Loading flights...',
       arrivals: 'Arrivals',
       departures: 'Departures',
+      tooltip_language: 'Switch languages',
+
+      flight_number: 'Flight number',
+      flight_destination: 'Destination Airport',
+      flight_departure: 'Departure Airport',
+      departure_time: 'Departure time',
+      arrival_time: 'Arrival time',
+      aircraft: 'Aircraft',
+      flight_status: 'Status',
     },
     Español: {
       language: 'Español',
@@ -34,5 +43,15 @@ export const translations = {
       rfo_loadingMessage:'Cargando vuelos...',
       arrivals: 'Llegadas',
       departures: 'Salidas',
+      tooltip_language: 'Cambia el idioma',
+
+      flight_number: 'Numero de vuelo',
+      flight_destination: 'Aeropuerto de destino',
+      flight_departure: 'Aeropuerto de salida',
+      departure_time: 'Hora de salida',
+      arrival_time: 'Hora de llegada',
+      aircraft: 'Aeronave',
+      flight_status: 'Estado',
+
     }
 };
