@@ -32,7 +32,7 @@ export const InfoRFO = () => {
 
 			{!statistics ? (
 				<div className="">
-					xd
+					...
 				</div>
 			) : (
 				<div className='md:flex lg:gap-5 gap-4'>

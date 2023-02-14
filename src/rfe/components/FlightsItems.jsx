@@ -15,7 +15,6 @@ export const FlightsItems = () => {
 	useEffect(() => {
 		async function fetchData() {
 			const url = buildUrl(selectAirport, type);
-			console.log(url)
 			const response = await fetch(url);
 			const result = await response.json();
 			setFlightsInfo(result);
@@ -57,10 +56,10 @@ export const FlightsItems = () => {
 				const key = randomCode.replace(/(\w{3})(\w{3})/, '$1-$2');
 
 				return (
-					<ButtonOptions.Provider key={randomCode} value={{flight}}>
+					<ButtonOptions.Provider key={randomCode} value={{flight, userLogged}}>
 						<div id={key} className='md:flex gap-6 md:justify-between bg-bg-dark-purple px-10 py-7 rounded-md text-white mb-3 items-center'>
 							<span className="w-1/3 flex items-left">
-								<img src={`/src/assets/airlines/${flight.logoAerolinea}.png`} className=' w-1/2'/>
+								<img src={`/src/assets/airlines/${flight.logoAerolinea}.png`} className=' w-1/2 opacity-70'/>
 								<p className='ml-3'>{flight.numeroVuelo}</p>
 							</span>
 							<span className="w-1/2 flex justify-left">
