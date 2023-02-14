@@ -11,11 +11,12 @@ export const InfoRFO = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const stats = await getStatistics();
-			setStatistics(stats);
+		  const stats = await getStatistics();
+		  setStatistics(stats);
+		  setTimeout(fetchData, 5000);
 		};
 		fetchData();
-	}, []);
+	  }, []);
 
 	if (statistics != null) {
 		for (let i = 0; i < statistics.length; i++) {
@@ -36,9 +37,9 @@ export const InfoRFO = () => {
 				</div>
 			) : (
 				<div className='md:flex lg:gap-5 gap-4'>
-					<p className='lg:w-1/3 w-full max-md:mb-3 bg-green p-3 text-center rounded-md text-white'>{translations[selectedLanguage].rfo_available} <span>{counts.Libre}</span></p>
-					<p className='lg:w-1/3 w-full max-md:mb-3 bg-yellow p-3 text-center rounded-md text-white'>{translations[selectedLanguage].rfo_waitingConfirmation} <span>{counts.Reservado}</span></p>
-					<p className='lg:w-1/3 w-full max-md:mb-3 bg-red p-3 text-center rounded-md text-white'>{translations[selectedLanguage].rfo_booked} <span>{counts.Confirmado}</span></p>
+					<p className='lg:w-1/3 w-full max-md:mb-3 bg-green p-3 text-center rounded-md text-white'>{translations[selectedLanguage].rfo_available}<span> {counts.Libre}</span></p>
+					<p className='lg:w-1/3 w-full max-md:mb-3 bg-yellow p-3 text-center rounded-md text-white'>{translations[selectedLanguage].rfo_waitingConfirmation}<span> {counts.Reservado}</span></p>
+					<p className='lg:w-1/3 w-full max-md:mb-3 bg-red p-3 text-center rounded-md text-white'>{translations[selectedLanguage].rfo_booked}<span> {counts.Confirmado}</span></p>
 				</div>
 			)}
 

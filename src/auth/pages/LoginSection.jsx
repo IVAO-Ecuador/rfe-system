@@ -37,7 +37,7 @@ export const LoginSection = ({ onChangeSession }) => {
 			<h2 className="text-[27px] font-bold text-gray-lighter mb-7">{translations[selectedLanguage].login_title}</h2>
 			<p className="text-gray-lighter m-5">{translations[selectedLanguage].login_subtitle}</p>
 			<a href="https://login.ivao.aero/index.php?url=http://rfo.ec.ivao.aero" className="w-full block text-white py-5 bg-purple-button rounded-xl relative mb-6 flex justify-center items-center">
-				<img src="/src/assets/ivao_official.png" className="w-8 mr-3" />
+				<img src="./images/ivao_official.png" className="w-8 mr-3" />
 				{translations[selectedLanguage].login_button}
 			</a>
 			<a className="text-white" href="https://ivao.aero/members/person/register.htm">{translations[selectedLanguage].login_signup}</a>

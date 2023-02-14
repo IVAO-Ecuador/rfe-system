@@ -12,9 +12,9 @@ export const PageContext = createContext(null);
 export const HomePage = () => {
 
 	const [selectedLanguage, setSelectedLanguage] = useState('Español');
-	const [isLoggedIn, setIsLoggedIn] = useState(true);
-	const [userLogged, setUserLogged] = useState([{ vid: "625219", firstname: "Santiago", lastname: "Baron" }]);
-	const [sidebarOpen, setSidebarOpen] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [userLogged, setUserLogged] = useState();
+	const [sidebarOpen, setSidebarOpen] = useState(true);
 
 	const handleLanguageSelection = (language) => {
 		setSelectedLanguage(language);

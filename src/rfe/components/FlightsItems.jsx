@@ -23,7 +23,7 @@ export const FlightsItems = () => {
 	}, [selectAirport, type]);
 
 	const buildUrl = (selectAirport, type) => {
-		let url = "http://localhost:2020/api/flights";
+		let url = "https://api.ec.ivao.aero/api/rfo/flights";
 		url += `?selectAirport=${selectAirport}&type=${type}`;
 		return url;
 	};
@@ -58,11 +58,11 @@ export const FlightsItems = () => {
 				return (
 					<ButtonOptions.Provider key={randomCode} value={{flight, userLogged}}>
 						<div id={key} className='md:flex gap-6 md:justify-between bg-bg-dark-purple px-10 py-7 rounded-md text-white mb-3 items-center'>
-							<span className="w-1/3 flex items-left">
-								<img src={`/src/assets/airlines/${flight.logoAerolinea}.png`} className=' w-1/2 opacity-70'/>
-								<p className='ml-3'>{flight.numeroVuelo}</p>
+							<span className="w-1/3 flex items-center">
+								<img src={`./images/airlines/${flight.logoAerolinea}.png`} className=' w-1/2 h-6 opacity-70'/>
+								<p className='ml-5 bg-bg-dark-blue px-4 rounded-md py-2'>{flight.numeroVuelo}</p>
 							</span>
-							<span className="w-1/2 flex justify-left">
+							<span className="w-1/2 flex justify-left items-center">
 
 								{type == 'Departures' ? (
 									<>

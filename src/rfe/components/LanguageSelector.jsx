@@ -7,7 +7,7 @@ import "react-tooltip/dist/react-tooltip.css";
 export const LanguageSelector = ({ onNewLanguage }) => {
 
     const [isOpen, setIsOpen] = useState(false);
-    const { selectedLanguage, userLogged, sidebarOpen } = useContext(PageContext);
+    const { selectedLanguage, sidebarOpen } = useContext(PageContext);
     
     const handleOpen = () => {
         setIsOpen(!isOpen);
@@ -33,7 +33,7 @@ export const LanguageSelector = ({ onNewLanguage }) => {
 
     return (
         <div className="relative">
-            <button className={`flex items-center focus:outline-none bg-light-blue px-16 py-3 rounded-lg ${!sidebarOpen ? 'px-8' : ''}`} onClick={handleOpen}>
+            <button className={`flex items-center focus:outline-none bg-light-blue px-16 py-3 rounded-lg ${!sidebarOpen ? 'px-8' : ''}`} >
                 <i className='bi bi-translate text-white text-[18px]'></i>
                 {!sidebarOpen ?  "" : <p className='text-bg-gray font-semibold ml-3'>{translations[selectedLanguage].language}</p>}
                 
