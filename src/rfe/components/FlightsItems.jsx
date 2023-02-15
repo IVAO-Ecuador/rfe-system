@@ -29,21 +29,11 @@ export const FlightsItems = () => {
 	};
 
 	return (
-		<div className="flex flex-col">
-			<div className='flex gap-6 justify-between bg-purple-button px-10 py-5 rounded-md text-white mb-5'>
+		<div className="md:flex lg:flex-col gap-x-5">
+			<div className='lg:flex gap-6 justify-between bg-purple-button px-10 py-5 rounded-md text-white mb-5 hidden'>
 				<span className="w-1/3 text-center">{translations[selectedLanguage].flight_number}</span>
 				<span className="w-1/2 text-center">
-					
-					{type == 'Departures' ? (
-						<>
-							{translations[selectedLanguage].flight_destination}
-						</>
-					) : (
-						<>
-							{translations[selectedLanguage].flight_departure}
-						</>
-					)}
-					
+					{type == 'Departures' ? (<>{translations[selectedLanguage].flight_destination}</>) : (<>{translations[selectedLanguage].flight_departure}</>)}
 				</span>
 				<span className="w-1/5 text-center">{translations[selectedLanguage].departure_time}</span>
 				<span className="w-1/5 text-center">{translations[selectedLanguage].arrival_time}</span>
@@ -57,32 +47,34 @@ export const FlightsItems = () => {
 
 				return (
 					<ButtonOptions.Provider key={randomCode} value={{flight, userLogged}}>
-						<div id={key} className='md:flex gap-6 md:justify-between bg-bg-dark-purple px-10 py-7 rounded-md text-white mb-3 items-center'>
-							<span className="w-1/3 flex items-center">
-								<img src={`./images/airlines/${flight.logoAerolinea}.png`} className=' w-1/2 h-6 opacity-70'/>
-								<p className='ml-5 bg-bg-dark-blue px-4 rounded-md py-2'>{flight.numeroVuelo}</p>
+						<div id={key} className='lg:flex lg:w-full md:w-1/2 w-full gap-6 md:justify-between bg-bg-dark-purple md:px-10 py-7 px-5 rounded-md text-white lg:mb-3 mb-6 items-center'>
+							<span className="lg:w-1/3 w-full flex lg:items-center lg:mb-0 mb-8">
+								<img src={`./images/airlines/${flight.logoAerolinea}.png`} className=' w-1/2 lg:h-6 opacity-70'/>
+								<p className='ml-5 bg-bg-dark-blue px-4 rounded-md py-2 w-full text-center'>{flight.numeroVuelo}</p>
 							</span>
-							<span className="w-1/2 flex justify-left items-center">
+
+							<p className='lg:hidden mb-4 font-medium'>{type == 'Departures' ? (<>{translations[selectedLanguage].flight_destination}:</>) : (<>{translations[selectedLanguage].flight_departure}:</>)}</p>
+							<span className="lg:w-1/2 w-full flex lg:justify-end justify-start items-center max-lg:bg-bg-dark-blue max-lg:p-5 max-lg:rounded-md max-lg:mb-5 max-lg:h-[120px]">
 
 								{type == 'Departures' ? (
 									<>
-									<img className='h-6 rounded-[3px] mr-6' src={`https://flagcdn.com/w40/${flight.paisSalida.toLowerCase()}.png`} />
-									<p>{flight.ICAO_Llegada} - {flight.aeropuertoLlegada}</p>
+									<img className='h-7 rounded-[3px] lg:mr-6 mr-4' src={`https://flagcdn.com/w40/${flight.paisSalida.toLowerCase()}.png`} />
+									<p className='text-left'>{flight.ICAO_Llegada} - {flight.aeropuertoLlegada}</p>
 									</>
 								) : (
 									<>
-									<img className='h-6 rounded-[3px] mr-6' src={`https://flagcdn.com/w40/${flight.paisSalida.toLowerCase()}.png`} />
-									<p>{flight.ICAO_Salida} - {flight.aeropuertoSalida}</p>
+									<img className='h-7 rounded-[3px] lg:mr-6 mr-4' src={`https://flagcdn.com/w40/${flight.paisSalida.toLowerCase()}.png`} />
+									<p className='text-left'>{flight.ICAO_Salida} - {flight.aeropuertoSalida}</p>
 									</>
 								)}
 
 							</span>
-							<span className="w-1/5 text-center">{flight.horaSalida}z</span>
-							<span className="w-1/5 text-center">{flight.horaLlegada}z</span>
-							<span className="w-1/5 text-center">{flight.tipoAeronave}</span>
-							<span className="w-1/3 text-center">
+							<p className="lg:w-1/5 w-full lg:text-center max-lg:mb-4"><span className='lg:hidden font-medium'>{translations[selectedLanguage].departure_time}: </span><span className='max-lg:py-1 max-lg:p-3 max-lg:bg-bg-dark-blue max-lg:rounded-md max-lg:float-right'>{flight.horaSalida}z</span></p>
+							<p className="lg:w-1/5 w-full lg:text-center max-lg:mb-4"><span className='lg:hidden font-medium'>{translations[selectedLanguage].arrival_time}: </span><span className='max-lg:py-1 max-lg:p-3 max-lg:bg-bg-dark-blue max-lg:rounded-md max-lg:float-right'>{flight.horaLlegada}z</span></p>
+							<p className="lg:w-1/5 w-full lg:text-center max-lg:mb-4"><span className='lg:hidden font-medium'>{translations[selectedLanguage].aircraft}: </span><span className='max-lg:py-1 max-lg:p-3 max-lg:bg-bg-dark-blue max-lg:rounded-md max-lg:float-right'>{flight.tipoAeronave}</span></p>
+							<p className="lg:w-1/3 w-full lg:text-center max-lg:mt-10 text-center">
 								<ButtonFlight/>
-							</span>
+							</p>
 						</div>
 					</ButtonOptions.Provider>
 				)

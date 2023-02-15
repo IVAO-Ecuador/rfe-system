@@ -40,7 +40,7 @@ export const LoginSection = ({ onChangeSession }) => {
 				<img src="./images/ivao_official.png" className="w-8 mr-3" />
 				{translations[selectedLanguage].login_button}
 			</a>
-			<a className="text-white" href="https://ivao.aero/members/person/register.htm">{translations[selectedLanguage].login_signup}</a>
+			<a className="text-white" target={"_blank"} href="https://ivao.aero/members/person/register.htm">{translations[selectedLanguage].login_signup}</a>
 		</div>
 	)
 }

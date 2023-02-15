@@ -13,7 +13,6 @@ export const InfoRFO = () => {
 		const fetchData = async () => {
 		  const stats = await getStatistics();
 		  setStatistics(stats);
-		  setTimeout(fetchData, 5000);
 		};
 		fetchData();
 	  }, []);

@@ -25,6 +25,10 @@ export const translations = {
       arrival_time: 'Arrival time',
       aircraft: 'Aircraft',
       flight_status: 'Status',
+
+	  button_available: 'Available',
+	  button_waitingConfirmation: 'Waiting confirmation',
+	  button_booked: 'Booked by',
     },
     Español: {
       language: 'Español',
@@ -52,6 +56,10 @@ export const translations = {
       arrival_time: 'Hora de llegada',
       aircraft: 'Aeronave',
       flight_status: 'Estado',
+
+	  button_available: 'Disponible',
+	  button_waitingConfirmation: 'Esperando confirmación',
+	  button_booked: 'Reservado por',
 
     }
 };
