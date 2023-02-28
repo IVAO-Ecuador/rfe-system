@@ -72,9 +72,9 @@ export const FlightsItems = () => {
 							<p className="lg:w-1/5 w-full lg:text-center max-lg:mb-4"><span className='lg:hidden font-medium'>{translations[selectedLanguage].departure_time}: </span><span className='max-lg:py-1 max-lg:p-3 max-lg:bg-bg-dark-blue max-lg:rounded-md max-lg:float-right'>{flight.horaSalida}z</span></p>
 							<p className="lg:w-1/5 w-full lg:text-center max-lg:mb-4"><span className='lg:hidden font-medium'>{translations[selectedLanguage].arrival_time}: </span><span className='max-lg:py-1 max-lg:p-3 max-lg:bg-bg-dark-blue max-lg:rounded-md max-lg:float-right'>{flight.horaLlegada}z</span></p>
 							<p className="lg:w-1/5 w-full lg:text-center max-lg:mb-4"><span className='lg:hidden font-medium'>{translations[selectedLanguage].aircraft}: </span><span className='max-lg:py-1 max-lg:p-3 max-lg:bg-bg-dark-blue max-lg:rounded-md max-lg:float-right'>{flight.tipoAeronave}</span></p>
-							<p className="lg:w-1/3 w-full lg:text-center max-lg:mt-10 text-center">
+							<div className="lg:w-1/3 w-full lg:text-center max-lg:mt-10 text-center">
 								<ButtonFlight/>
-							</p>
+							</div>
 						</div>
 					</ButtonOptions.Provider>
 				)

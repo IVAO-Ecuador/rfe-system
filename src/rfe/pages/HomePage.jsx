@@ -12,8 +12,8 @@ export const PageContext = createContext(null);
 export const HomePage = () => {
 
 	const [selectedLanguage, setSelectedLanguage] = useState('Español');
-	const [isLoggedIn, setIsLoggedIn] = useState(false); // Set false
-	const [userLogged, setUserLogged] = useState([]); // Set empty array
+	const [isLoggedIn, setIsLoggedIn] = useState(true); // Set false
+	const [userLogged, setUserLogged] = useState([{ vid: 625219, firstname: 'Santiago', lastname: 'Baron' }]); // Set empty array
 	const [sidebarOpen, setSidebarOpen] = useState(true);
 
 	const handleLanguageSelection = (language) => {
